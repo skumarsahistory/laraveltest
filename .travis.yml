@@ -1,8 +1,7 @@
 os:
  - linux
 
-lanuage:
- - php
+lanuage: php
 
 php:
  - '7.1.3'
@@ -21,3 +20,6 @@ script:
  - phpcs --ignore=app/Http/Controllers/Auth,app/Http/Controllers/Controller.php app/Http/Controllers
  - npm run production
  - jshint resources/assets/js/modules/*
+
+notifications:
+  email: false
