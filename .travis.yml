@@ -10,6 +10,7 @@ before_script:
   - php artisan key:generate
   - php artisan jwt:generate
   - php artisan migrate
+  - pear install pear/PHP_CodeSniffer
   - npm install npm@latest -g
   - npm install -g jshint
   - npm install
