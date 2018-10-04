@@ -21,5 +21,10 @@ script:
  - npm run production
  - jshint resources/assets/js/modules/*
 
+matrix:
+ - php: 7.1
+   env: ZEND_BACKEND="--backend=ZendEngine3"
+   install: sudo apt-get install php7.0-phalcon
+
 notifications:
   email: false
