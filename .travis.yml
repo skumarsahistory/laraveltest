@@ -1,7 +1,33 @@
-lanuage: php
-
+sudo: required
+dist: trusty
+language: php
 php:
- - '7.1'
+    - 7.0
+    - 7.1
+    - 7.2
+    - nightly
+env:
+    global:
+        - REPORT_EXIT_STATUS=1
+    matrix:
+        - CC=gcc
+
+matrix:
+    allow_failures:
+        - php: nightly
+    include:
+        - php: 7.0
+          env:
+              - CC=clang
+        - php: 7.1
+          env:
+              - CC=clang
+        - php: 7.2
+          env:
+              - CC=clang
+
+os:
+    - linux
 
 before_script:
   - cp .env.travis .env
