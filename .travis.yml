@@ -2,7 +2,6 @@ sudo: required
 dist: trusty
 language: php
 php:
-    - 7.0
     - 7.1
     - 7.2
     - nightly
@@ -16,9 +15,6 @@ matrix:
     allow_failures:
         - php: nightly
     include:
-        - php: 7.0
-          env:
-              - CC=clang
         - php: 7.1
           env:
               - CC=clang
@@ -34,7 +30,6 @@ before_script:
   - composer self-update
   - composer install --prefer-source --no-interaction
   - php artisan key:generate
-  - php artisan jwt:generate
   - php artisan migrate
   - pear install pear/PHP_CodeSniffer
   - npm install npm@latest -g
@@ -46,11 +41,6 @@ script:
  - phpcs --ignore=app/Http/Controllers/Auth,app/Http/Controllers/Controller.php app/Http/Controllers
  - npm run production
  - jshint resources/assets/js/modules/*
-
-matrix:
- - php: 7.1
-   env: ZEND_BACKEND="--backend=ZendEngine3"
-   install: sudo apt-get install php7.0-phalcon
 
 notifications:
   email: false
