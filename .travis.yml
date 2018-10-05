@@ -2,9 +2,7 @@ sudo: required
 dist: trusty
 language: php
 php:
-    - 7.1
     - 7.2
-    - nightly
 env:
     global:
         - REPORT_EXIT_STATUS=1
@@ -12,12 +10,7 @@ env:
         - CC=gcc
 
 matrix:
-    allow_failures:
-        - php: nightly
     include:
-        - php: 7.1
-          env:
-              - CC=clang
         - php: 7.2
           env:
               - CC=clang
@@ -37,7 +30,7 @@ before_script:
 
 script:
  - vendor/bin/phpunit --coverage-text
- - phpcs --ignore=app/Http/Controllers/Auth,app/Http/Controllers/Controller.php app/Http/Controllers
+ - vendor/bin/phpcs --ignore=app/Http/Controllers/Auth,app/Http/Controllers/Controller.php app/Http/Controllers
  - npm run production
  - jshint resources/assets/js/modules/*
 
