@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/skumarsahistory/laraveltest.svg?branch=master)](https://https://travis-ci.org/skumarsahistory/laraveltest)
 
-# laravel bolier plate with phpunit, jshint and codesniffer
+# laravel bolier plate with phpunit, jshint and phpcodesniffer
 
 ## what does this do?
 It will spin up a virtual machine inside travis and perform the following operations before we run any tests (via the before_script).
